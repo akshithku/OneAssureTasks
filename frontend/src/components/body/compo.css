@@ -1,0 +1,48 @@
+.compo2-main{
+    background-color: #B7EFC5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sub-compo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#compoh1{
+    color: #1A7431;
+    padding: 1em;
+    font-size: 7vmin;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-weight: 900;
+    font-style: oblique;
+}
+
+/* .compodiv{
+    text-align: -webkit-center;
+} */
+
+#compoP{
+    color: #1A7448;
+    width: 50vmax;
+    padding: 1em;
+    text-align: center;
+}
+
+.sub-compo2{
+padding: 1em;
+}
+.compo-btn{
+    background-color: #155D27;
+    color: white;
+    height: 8vmin;
+    width: 20vmin;
+    border-radius: 10px;
+}
+
+.compoimg{
+    padding: 2em;
+    height: 30vmax;
+    width: 65vmin;
+}

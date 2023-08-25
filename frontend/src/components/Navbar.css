@@ -1,0 +1,10 @@
+.navbar{
+background-color: #04A777;
+    
+  }
+
+  .nav-c:hover{
+    border-bottom: solid black;
+    transform: 3s;
+    cursor: pointer;
+  }
