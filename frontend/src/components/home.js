@@ -4,7 +4,7 @@ import './home.css'
 function home() {
   return (
     <div className='home_main'>
-        <h1 className='home'>Insure your future with us now.</h1>
+        <h1 className='home-h1'>Insure your future with us now.</h1>
         <img src={hero} alt='>'></img>
     </div>
   )

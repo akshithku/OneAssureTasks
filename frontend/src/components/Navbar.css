@@ -1,10 +1,23 @@
 .navbar{
 background-color: #04A777;
-    
-  }
+display: flex;
+flex-direction: row;
+justify-content: center;
+justify-content: space-around;
+}
 
-  .nav-c:hover{
-    border-bottom: solid black;
+.nav-c{
+  height: 6vmin;
+  width: 15vmin;
+  text-decoration: none;
+  color: black;
+  font-size: 3vmin;
+  font-weight: 500;
+  margin: 2%;
+  text-align: center;
+}
+ .nav-c:hover{
+  color: aliceblue;
     transform: 3s;
     cursor: pointer;
   }

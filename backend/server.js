@@ -35,13 +35,12 @@ app.listen(port, () => {
 
 app.post('/data', async (req, res) => {
   try {
-    const { member_csv, age_range, tier, Number } = req.body;
+    const { member_csv, age_range, tier,} = req.body;
 
     const premium = new Premium({
       member_csv,
       age_range,
       tier,
-      Number,
     });
 
     const savedPremium = await premium.save();
@@ -54,51 +53,48 @@ app.post('/data', async (req, res) => {
 });
 
 
-
-
-// app.post('/premium', async (req, res) => {
-//   try {
-//     const { sumInsured, age, cityTier, tenure, Premiums } = req.body;
-
-   
-//     const DataList = new DataModel({
-//       sumInsured,
-//       age,
-//       cityTier,
-//       tenure,
-//       Premiums
-//     });
-
-//     const savedPremium = await DataList.save();
-
-//     res.status(201).json(savedPremium);
-//     return savedPremium;
-//   } catch (error) {
-//     console.error('Error in saving list data:', error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
-
 app.post('/premium', async (req, res) => {
+  const {  member_csv, tier,price} = req.body;
   try {
-    const { SumInsured, Age, CityTier, Tenure, PremiumPlan } = req.body;
-
-    // Create a new Premium instance
-    const premium = new DataModel({
-      SumInsured,
-      Age,
-      CityTier,
-      Tenure,
-      PremiumPlan
+    const premiumData = await  Premium.find({
+      member_csv: member_csv,
+      tier: tier
     });
 
-    const savedPremium = await premium.save();
+    if (premiumData.length > 0) {
+      const filteredData = premiumData.map(data => ({
+        ageRange: data.age_range,
+        memberCsv: data.member_csv,
+        tier: data.tier,
+        sumInsured: data[price] || 'Sum Insured not found'
 
-    // Send a response with the saved data as JSON
-    res.status(201).json(savedPremium);
+      }));
+
+      res.status(200).json(filteredData);
+    } else {
+      res.status(404).json({ message: 'Data not found for the specified member type and tier' });
+    }
   } catch (error) {
-    console.error('Error saving premium data:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ message: 'An error occurred while fetching premium data' });
+  }
+});
+
+app.patch('/addtocart/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const existingData = await Premium.findById(id);
+
+    if (!existingData) {
+      return res.status(404).json({ message: 'Data not found' });
+    }
+
+    const updatedAddedStatus = !existingData.AddtoCart;
+    existingData.AddtoCart = updatedAddedStatus;
+    const updatedData = await existingData.save();
+
+    res.status(200).json({ message: 'Added status updated', data: updatedData });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred while updating added status' });
   }
 });
 

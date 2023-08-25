@@ -1,0 +1,64 @@
+.prem-main {
+    background-color: #B7EFC5;
+
+}
+
+.prem-card-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.prem-card {
+    height: fit-content;
+    width: 100px;
+
+    background: #A2EAB4;
+    border-radius: 15px;
+    box-shadow: 1px 5px 60px 0px #dad8fd6b;
+    margin: 2vmin;
+    padding: 1em;
+}
+
+.prem-card.prem-component {
+    width: 50%;
+    height: 3%;
+    background: #B7EFC5;
+    margin: auto;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.prem-age {
+    font-weight: 600;
+    color: black;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.prem-card .prem-amount {
+    font-weight: 400;
+    color: rgb(10, 9, 9);
+    display: block;
+    text-align: center;
+    padding-top: 3px;
+    margin-top: 2vmin;
+    font-size: 3vmin;
+}
+
+.prem-card .cart {
+    height: 10vmin;
+    background: #f5f8f6;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.cart:hover {
+    color: aliceblue;
+    background-color: #000000;
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import hero3 from '../../Assets/img-3.png'
 import "./compo.css"
+import { Link } from 'react-router-dom'
+
 function component2() {
   return (
     <div className='compo2-main'>
@@ -11,7 +13,9 @@ function component2() {
         </div>
          </div>
         <div className='sub-compo2'>
+        <Link className='btn-link' to={"/planpage"}>
             <button className='compo-btn'>Find My Plan</button>
+          </Link>
         </div>
         <div className='compo-img'>
             <img className='compoimg' src={hero3} alt='l'></img>

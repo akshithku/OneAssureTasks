@@ -2,6 +2,17 @@
 const mongoose= require('mongoose');
 
 const DataShcema= mongoose.Schema({
+    500000: String,
+    700000: String,
+    1000000: String,
+    1500000: String,
+    2000000: String,
+    2500000: String,
+    3000000: String,
+    4000000: String,
+    5000000: String,
+    6000000: String,
+    7500000: String,
     member_csv:{
         type:String
     },
@@ -11,8 +22,8 @@ const DataShcema= mongoose.Schema({
     tier:{
         type:String
     },
-    Number:{
-        type:Number
+    AddtoCart:{
+        type:Boolean,
     }
 })
 
